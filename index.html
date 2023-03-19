@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=100% height=100% tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -17,9 +17,12 @@
         </div>
       </div>
       <div id="unity-warning"> </div>
-      <div id="unity-fullscreen-button"></div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">FindTownEcs</div>
+      </div>
     </div>
-
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -55,9 +58,9 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/FindTownWeb.loader.js";
       var config = {
-        dataUrl: buildUrl + "/FindTownWeb.data.br",
-        frameworkUrl: buildUrl + "/FindTownWeb.framework.js.br",
-        codeUrl: buildUrl + "/FindTownWeb.wasm.br",
+        dataUrl: buildUrl + "/FindTownWeb.data",
+        frameworkUrl: buildUrl + "/FindTownWeb.framework.js",
+        codeUrl: buildUrl + "/FindTownWeb.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "FindTownEcs",
@@ -85,15 +88,13 @@
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
         // config.devicePixelRatio = 1;
-        canvas.style.width = window.innerWidth + 'px';
-        canvas.style.height = window.innerHeight + 'px';
+
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        fullscreenButton.style.display = 'block';
-        canvas.style.width = "100%";
-        canvas.style.height = "100%";
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
       }
 
       loadingBar.style.display = "block";
